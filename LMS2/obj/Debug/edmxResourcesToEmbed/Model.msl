@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LMSModelStoreContainer" CdmEntityContainer="LMSEntities">
+    <EntitySetMapping Name="auther_tables">
+      <EntityTypeMapping TypeName="LMSModel.auther_table">
+        <MappingFragment StoreEntitySet="auther table">
+          <ScalarProperty Name="aut_id" ColumnName="aut-id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="biography" ColumnName="biography" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B_auther_and_books">
+      <EntityTypeMapping TypeName="LMSModel.B_auther_and_book">
+        <MappingFragment StoreEntitySet="B auther and book">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="book_id" ColumnName="book-id" />
+          <ScalarProperty Name="aut_id" ColumnName="aut id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="book_tables">
+      <EntityTypeMapping TypeName="LMSModel.book_table">
+        <MappingFragment StoreEntitySet="book table">
+          <ScalarProperty Name="book_id" ColumnName="book-id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="subj" ColumnName="subj" />
+          <ScalarProperty Name="edition" ColumnName="edition" />
+          <ScalarProperty Name="publication_date" ColumnName="publication-date" />
+          <ScalarProperty Name="publisher" ColumnName="publisher" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+          <ScalarProperty Name="numofcopies" ColumnName="numofcopies" />
+          <ScalarProperty Name="aut_book" ColumnName="aut-book" />
+          <ScalarProperty Name="publisher_id" ColumnName="publisher id" />
+          <ScalarProperty Name="aut_id" ColumnName="aut id" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loans">
+      <EntityTypeMapping TypeName="LMSModel.loan">
+        <MappingFragment StoreEntitySet="loan">
+          <ScalarProperty Name="loan_id" ColumnName="loan id" />
+          <ScalarProperty Name="book_id" ColumnName="book-id" />
+          <ScalarProperty Name="mem_id" ColumnName="mem id" />
+          <ScalarProperty Name="issue_date" ColumnName="issue date" />
+          <ScalarProperty Name="return_date" ColumnName="return date" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="members">
+      <EntityTypeMapping TypeName="LMSModel.member">
+        <MappingFragment StoreEntitySet="member">
+          <ScalarProperty Name="mem_id" ColumnName="mem id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="publisher_tables">
+      <EntityTypeMapping TypeName="LMSModel.publisher_table">
+        <MappingFragment StoreEntitySet="publisher table">
+          <ScalarProperty Name="publisher_id" ColumnName="publisher id" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="book_id" ColumnName="book-id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="record_histories">
+      <EntityTypeMapping TypeName="LMSModel.record_history">
+        <MappingFragment StoreEntitySet="record history">
+          <ScalarProperty Name="mem_id" ColumnName="mem id" />
+          <ScalarProperty Name="rec_id" ColumnName="rec id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="enter_date" ColumnName="enter date" />
+          <ScalarProperty Name="out_date" ColumnName="out date" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="return_tables">
+      <EntityTypeMapping TypeName="LMSModel.return_table">
+        <MappingFragment StoreEntitySet="return table">
+          <ScalarProperty Name="ret_id" ColumnName="ret id" />
+          <ScalarProperty Name="loan_id" ColumnName="loan id" />
+          <ScalarProperty Name="ret_date" ColumnName="ret date" />
+          <ScalarProperty Name="statues" ColumnName="statues" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subject_tables">
+      <EntityTypeMapping TypeName="LMSModel.subject_table">
+        <MappingFragment StoreEntitySet="subject table">
+          <ScalarProperty Name="sub_id" ColumnName="sub-id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="LMSModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

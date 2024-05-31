@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LMSModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="auther_table">
+    <Key>
+      <PropertyRef Name="aut_id" />
+    </Key>
+    <Property Name="aut_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="biography" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="B_auther_and_book" Relationship="Self.FK_B_auther_and_book_auther_table" FromRole="auther_table" ToRole="B_auther_and_book" />
+  </EntityType>
+  <EntityType Name="B_auther_and_book">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="book_id" Type="Int32" Nullable="false" />
+    <Property Name="aut_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="auther_table" Relationship="Self.FK_B_auther_and_book_auther_table" FromRole="B_auther_and_book" ToRole="auther_table" />
+    <NavigationProperty Name="book_table" Relationship="Self.FK_B_auther_and_book_book_table" FromRole="B_auther_and_book" ToRole="book_table" />
+  </EntityType>
+  <EntityType Name="book_table">
+    <Key>
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="book_id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="subj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="edition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="publication_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="numofcopies" Type="Int32" Nullable="false" />
+    <Property Name="aut_book" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="publisher_id" Type="Int32" Nullable="false" />
+    <Property Name="aut_id" Type="Int32" Nullable="false" />
+    <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="B_auther_and_book" Relationship="Self.FK_B_auther_and_book_book_table" FromRole="book_table" ToRole="B_auther_and_book" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK_book_table_Subject" FromRole="book_table" ToRole="Subject" />
+    <NavigationProperty Name="loans" Relationship="Self.FK_loan_book_table" FromRole="book_table" ToRole="loan" />
+    <NavigationProperty Name="publisher_table" Relationship="Self.FK_publisher_table_book_table" FromRole="book_table" ToRole="publisher_table" />
+  </EntityType>
+  <EntityType Name="loan">
+    <Key>
+      <PropertyRef Name="loan_id" />
+    </Key>
+    <Property Name="loan_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="book_id" Type="Int32" Nullable="false" />
+    <Property Name="mem_id" Type="Int32" Nullable="false" />
+    <Property Name="issue_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="return_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="book_table" Relationship="Self.FK_loan_book_table" FromRole="loan" ToRole="book_table" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_loan_Member" FromRole="loan" ToRole="Member" />
+    <NavigationProperty Name="return_table" Relationship="Self.FK_return_table_loan" FromRole="loan" ToRole="return_table" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="Member_ID" />
+    </Key>
+    <Property Name="Member_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="loans" Relationship="Self.FK_loan_Member" FromRole="Member" ToRole="loan" />
+  </EntityType>
+  <EntityType Name="owner">
+    <Key>
+      <PropertyRef Name="mem_id" />
+    </Key>
+    <Property Name="mem_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="publisher_table">
+    <Key>
+      <PropertyRef Name="publisher_id" />
+    </Key>
+    <Property Name="publisher_id" Type="Int32" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="book_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="book_table" Relationship="Self.FK_publisher_table_book_table" FromRole="publisher_table" ToRole="book_table" />
+  </EntityType>
+  <EntityType Name="record_history">
+    <Key>
+      <PropertyRef Name="rec_id" />
+    </Key>
+    <Property Name="mem_id" Type="Int32" Nullable="false" />
+    <Property Name="rec_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="enter_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="out_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="return_table">
+    <Key>
+      <PropertyRef Name="ret_id" />
+    </Key>
+    <Property Name="ret_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="loan_id" Type="Int32" Nullable="false" />
+    <Property Name="ret_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="statues" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="loan" Relationship="Self.FK_return_table_loan" FromRole="return_table" ToRole="loan" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="SUB_id" />
+    </Key>
+    <Property Name="SUB_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="book_table" Relationship="Self.FK_book_table_Subject" FromRole="Subject" ToRole="book_table" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_B_auther_and_book_auther_table">
+    <End Role="auther_table" Type="Self.auther_table" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="B_auther_and_book" Type="Self.B_auther_and_book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auther_table">
+        <PropertyRef Name="aut_id" />
+      </Principal>
+      <Dependent Role="B_auther_and_book">
+        <PropertyRef Name="aut_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_B_auther_and_book_book_table">
+    <End Role="book_table" Type="Self.book_table" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="B_auther_and_book" Type="Self.B_auther_and_book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book_table">
+        <PropertyRef Name="book_id" />
+      </Principal>
+      <Dependent Role="B_auther_and_book">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_book_table_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="book_table" Type="Self.book_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="SUB_id" />
+      </Principal>
+      <Dependent Role="book_table">
+        <PropertyRef Name="subj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_loan_book_table">
+    <End Role="book_table" Type="Self.book_table" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="loan" Type="Self.loan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book_table">
+        <PropertyRef Name="book_id" />
+      </Principal>
+      <Dependent Role="loan">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_publisher_table_book_table">
+    <End Role="book_table" Type="Self.book_table" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="publisher_table" Type="Self.publisher_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book_table">
+        <PropertyRef Name="book_id" />
+      </Principal>
+      <Dependent Role="publisher_table">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_loan_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="loan" Type="Self.loan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Member_ID" />
+      </Principal>
+      <Dependent Role="loan">
+        <PropertyRef Name="mem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_return_table_loan">
+    <End Role="loan" Type="Self.loan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="return_table" Type="Self.return_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loan">
+        <PropertyRef Name="loan_id" />
+      </Principal>
+      <Dependent Role="return_table">
+        <PropertyRef Name="loan_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LMSEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="auther_tables" EntityType="Self.auther_table" />
+    <EntitySet Name="B_auther_and_books" EntityType="Self.B_auther_and_book" />
+    <EntitySet Name="book_tables" EntityType="Self.book_table" />
+    <EntitySet Name="loans" EntityType="Self.loan" />
+    <EntitySet Name="Members" EntityType="Self.Member" />
+    <EntitySet Name="owners" EntityType="Self.owner" />
+    <EntitySet Name="publisher_tables" EntityType="Self.publisher_table" />
+    <EntitySet Name="record_histories" EntityType="Self.record_history" />
+    <EntitySet Name="return_tables" EntityType="Self.return_table" />
+    <EntitySet Name="Subjects" EntityType="Self.Subject" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_B_auther_and_book_auther_table" Association="Self.FK_B_auther_and_book_auther_table">
+      <End Role="auther_table" EntitySet="auther_tables" />
+      <End Role="B_auther_and_book" EntitySet="B_auther_and_books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_B_auther_and_book_book_table" Association="Self.FK_B_auther_and_book_book_table">
+      <End Role="book_table" EntitySet="book_tables" />
+      <End Role="B_auther_and_book" EntitySet="B_auther_and_books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_book_table_Subject" Association="Self.FK_book_table_Subject">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="book_table" EntitySet="book_tables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_loan_book_table" Association="Self.FK_loan_book_table">
+      <End Role="book_table" EntitySet="book_tables" />
+      <End Role="loan" EntitySet="loans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_publisher_table_book_table" Association="Self.FK_publisher_table_book_table">
+      <End Role="book_table" EntitySet="book_tables" />
+      <End Role="publisher_table" EntitySet="publisher_tables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_loan_Member" Association="Self.FK_loan_Member">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="loan" EntitySet="loans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_return_table_loan" Association="Self.FK_return_table_loan">
+      <End Role="loan" EntitySet="loans" />
+      <End Role="return_table" EntitySet="return_tables" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

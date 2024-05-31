@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2ddea406a03f4424b942334347453ecb" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Auther_table" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AutherAndBook" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Book_table" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Borrow" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Employee" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Member" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Publisher" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.record_history" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.return_table" Width="1.5" PointX="10.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Subject_table" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="2.75" PointY="11.625" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_AutherAndBook_Auther_table" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_AutherAndBook_Book_table" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Book_table_Publisher" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Book_table_Subject_table" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Borrow_Book_table" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Borrow_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_return_table_Borrow" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_record_history_Member" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

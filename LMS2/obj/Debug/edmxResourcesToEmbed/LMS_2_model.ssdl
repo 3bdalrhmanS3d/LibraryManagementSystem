@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LMSModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="auther table">
+    <Key>
+      <PropertyRef Name="aut-id" />
+    </Key>
+    <Property Name="aut-id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="biography" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="B auther and book">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="book-id" Type="int" Nullable="false" />
+    <Property Name="aut id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="book table">
+    <Key>
+      <PropertyRef Name="book-id" />
+    </Key>
+    <Property Name="book-id" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="subj" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="edition" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="publication-date" Type="datetime" Nullable="false" />
+    <Property Name="publisher" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="desc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="numofcopies" Type="int" Nullable="false" />
+    <Property Name="aut-book" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="publisher id" Type="int" Nullable="false" />
+    <Property Name="aut id" Type="int" Nullable="false" />
+    <Property Name="photo" Type="image" Nullable="false" />
+  </EntityType>
+  <EntityType Name="loan">
+    <Key>
+      <PropertyRef Name="loan id" />
+    </Key>
+    <Property Name="loan id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="book-id" Type="int" Nullable="false" />
+    <Property Name="mem id" Type="int" Nullable="false" />
+    <Property Name="issue date" Type="date" Nullable="false" />
+    <Property Name="return date" Type="date" Nullable="false" />
+    <Property Name="state" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="Member_ID" />
+    </Key>
+    <Property Name="Member_ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="photo" Type="image" />
+  </EntityType>
+  <EntityType Name="publisher table">
+    <Key>
+      <PropertyRef Name="publisher id" />
+    </Key>
+    <Property Name="publisher id" Type="int" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="book-id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="record history">
+    <Key>
+      <PropertyRef Name="rec id" />
+    </Key>
+    <Property Name="mem id" Type="int" Nullable="false" />
+    <Property Name="rec id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="enter date" Type="datetime" Nullable="false" />
+    <Property Name="out date" Type="datetime" Nullable="false" />
+    <Property Name="state" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="return table">
+    <Key>
+      <PropertyRef Name="ret id" />
+    </Key>
+    <Property Name="ret id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="loan id" Type="int" Nullable="false" />
+    <Property Name="ret date" Type="date" Nullable="false" />
+    <Property Name="statues" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="SUB_id" />
+    </Key>
+    <Property Name="SUB_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DESC" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_B auther and book_auther table">
+    <End Role="auther table" Type="Self.auther table" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="B auther and book" Type="Self.B auther and book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auther table">
+        <PropertyRef Name="aut-id" />
+      </Principal>
+      <Dependent Role="B auther and book">
+        <PropertyRef Name="aut id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_B auther and book_book table">
+    <End Role="book table" Type="Self.book table" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="B auther and book" Type="Self.B auther and book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book table">
+        <PropertyRef Name="book-id" />
+      </Principal>
+      <Dependent Role="B auther and book">
+        <PropertyRef Name="book-id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_book table_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="book table" Type="Self.book table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="SUB_id" />
+      </Principal>
+      <Dependent Role="book table">
+        <PropertyRef Name="subj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_loan_book table">
+    <End Role="book table" Type="Self.book table" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="loan" Type="Self.loan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book table">
+        <PropertyRef Name="book-id" />
+      </Principal>
+      <Dependent Role="loan">
+        <PropertyRef Name="book-id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_loan_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="loan" Type="Self.loan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Member_ID" />
+      </Principal>
+      <Dependent Role="loan">
+        <PropertyRef Name="mem id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_publisher table_book table">
+    <End Role="book table" Type="Self.book table" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="publisher table" Type="Self.publisher table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book table">
+        <PropertyRef Name="book-id" />
+      </Principal>
+      <Dependent Role="publisher table">
+        <PropertyRef Name="book-id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_return table_loan">
+    <End Role="loan" Type="Self.loan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="return table" Type="Self.return table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loan">
+        <PropertyRef Name="loan id" />
+      </Principal>
+      <Dependent Role="return table">
+        <PropertyRef Name="loan id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LMSModel1StoreContainer">
+    <EntitySet Name="auther table" EntityType="Self.auther table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="B auther and book" EntityType="Self.B auther and book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="book table" EntityType="Self.book table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loan" EntityType="Self.loan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="publisher table" EntityType="Self.publisher table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="record history" EntityType="Self.record history" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="return table" EntityType="Self.return table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_B auther and book_auther table" Association="Self.FK_B auther and book_auther table">
+      <End Role="auther table" EntitySet="auther table" />
+      <End Role="B auther and book" EntitySet="B auther and book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_B auther and book_book table" Association="Self.FK_B auther and book_book table">
+      <End Role="book table" EntitySet="book table" />
+      <End Role="B auther and book" EntitySet="B auther and book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_book table_Subject" Association="Self.FK_book table_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="book table" EntitySet="book table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_loan_book table" Association="Self.FK_loan_book table">
+      <End Role="book table" EntitySet="book table" />
+      <End Role="loan" EntitySet="loan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_loan_Member" Association="Self.FK_loan_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="loan" EntitySet="loan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_publisher table_book table" Association="Self.FK_publisher table_book table">
+      <End Role="book table" EntitySet="book table" />
+      <End Role="publisher table" EntitySet="publisher table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_return table_loan" Association="Self.FK_return table_loan">
+      <End Role="loan" EntitySet="loan" />
+      <End Role="return table" EntitySet="return table" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

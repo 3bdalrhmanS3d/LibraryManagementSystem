@@ -1,0 +1,63 @@
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\bin\Debug\LMS2.exe.config
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\bin\Debug\LMS2.exe
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\bin\Debug\LMS2.pdb
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.csproj.AssemblyReference.cache
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.csproj.SuggestedBindingRedirects.cache
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.Properties.Resources.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.csproj.GenerateResource.cache
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.csproj.CoreCompileInputs.cache
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.exe
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.pdb
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.main.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\bin\Debug\EntityFramework.dll
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\bin\Debug\EntityFramework.xml
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.login.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.csproj.CopyComplete
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.Addbook.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.delete_book.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.Check_mem.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.Main_borrow.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.Add_Subject_frm.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.AddAutherfrm.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.AddPublisher_frm.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.regist_Member.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.Add_Empl.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.Return_book.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.Gridviewofstaticbook.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.Datagridviewofstaticborrow.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.Datagridviewofstaticmember.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.Datagridviewofstaticsubject.resources
+C:\Users\DELL M6800\source\repos\LMS2\LMS2\obj\Debug\LMS2.Record_History_frm.resources
+E:\LMS\LMS2\LMS2\bin\Debug\LMS2.exe.config
+E:\LMS\LMS2\LMS2\bin\Debug\LMS2.exe
+E:\LMS\LMS2\LMS2\bin\Debug\LMS2.pdb
+E:\LMS\LMS2\LMS2\bin\Debug\EntityFramework.dll
+E:\LMS\LMS2\LMS2\bin\Debug\EntityFramework.SqlServer.dll
+E:\LMS\LMS2\LMS2\bin\Debug\EntityFramework.xml
+E:\LMS\LMS2\LMS2\bin\Debug\EntityFramework.SqlServer.xml
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.csproj.AssemblyReference.cache
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.AddAutherfrm.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.Addbook.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.AddPublisher_frm.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.Check_mem.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.Datagridviewofstaticborrow.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.Datagridviewofstaticmember.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.Datagridviewofstaticsubject.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.delete_book.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.Add_Subject_frm.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.Gridviewofstaticbook.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.login.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.Main_borrow.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.main.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.Properties.Resources.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.Record_History_frm.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.regist_Member.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.Add_Empl.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.Return_book.resources
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.csproj.GenerateResource.cache
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.csproj.CoreCompileInputs.cache
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.csproj.CopyComplete
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.exe
+E:\LMS\LMS2\LMS2\obj\Debug\LMS2.pdb

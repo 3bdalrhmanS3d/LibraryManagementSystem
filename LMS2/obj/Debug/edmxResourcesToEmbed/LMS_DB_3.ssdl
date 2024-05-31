@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="auther table">
+    <Key>
+      <PropertyRef Name="aut-id" />
+    </Key>
+    <Property Name="aut-id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="biography" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AutherAndBook">
+    <Key>
+      <PropertyRef Name="ID_" />
+    </Key>
+    <Property Name="ID_" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Book" Type="int" Nullable="false" />
+    <Property Name="ID_Auther" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Book_table">
+    <Key>
+      <PropertyRef Name="Book_ID" />
+    </Key>
+    <Property Name="Book_ID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Edition" Type="int" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descrption" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Auther_name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="publiction_Date" Type="datetime" Nullable="false" />
+    <Property Name="Publisher_ID" Type="int" Nullable="false" />
+    <Property Name="Photo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Borrow">
+    <Key>
+      <PropertyRef Name="loan id" />
+    </Key>
+    <Property Name="loan id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="book-id" Type="int" Nullable="false" />
+    <Property Name="mem id" Type="int" Nullable="false" />
+    <Property Name="issue date" Type="date" Nullable="false" />
+    <Property Name="return date" Type="date" Nullable="false" />
+    <Property Name="state" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="mem_ id" />
+    </Key>
+    <Property Name="mem_ id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="picture" Type="image" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="Member_ID" />
+    </Key>
+    <Property Name="Member_ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="photo" Type="image" />
+  </EntityType>
+  <EntityType Name="publisher">
+    <Key>
+      <PropertyRef Name="publisher_ID" />
+    </Key>
+    <Property Name="publisher_ID" Type="int" Nullable="false" />
+    <Property Name="Publisher_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="phoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="record history">
+    <Key>
+      <PropertyRef Name="rec id" />
+    </Key>
+    <Property Name="mem id" Type="int" Nullable="false" />
+    <Property Name="rec id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="enter date" Type="datetime" Nullable="false" />
+    <Property Name="out date" Type="datetime" Nullable="false" />
+    <Property Name="state" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="return table">
+    <Key>
+      <PropertyRef Name="ret id" />
+    </Key>
+    <Property Name="ret id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="loan id" Type="int" Nullable="false" />
+    <Property Name="ret date" Type="date" Nullable="false" />
+    <Property Name="statues" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="SUB_id" />
+    </Key>
+    <Property Name="SUB_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DESC" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_AutherAndBook_auther table">
+    <End Role="auther table" Type="Self.auther table" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AutherAndBook" Type="Self.AutherAndBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auther table">
+        <PropertyRef Name="aut-id" />
+      </Principal>
+      <Dependent Role="AutherAndBook">
+        <PropertyRef Name="ID_Auther" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AutherAndBook_Book_table">
+    <End Role="Book_table" Type="Self.Book_table" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AutherAndBook" Type="Self.AutherAndBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book_table">
+        <PropertyRef Name="Book_ID" />
+      </Principal>
+      <Dependent Role="AutherAndBook">
+        <PropertyRef Name="ID_Book" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Book_table_publisher">
+    <End Role="publisher" Type="Self.publisher" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Book_table" Type="Self.Book_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publisher">
+        <PropertyRef Name="publisher_ID" />
+      </Principal>
+      <Dependent Role="Book_table">
+        <PropertyRef Name="Publisher_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Book_table_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Book_table" Type="Self.Book_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="SUB_id" />
+      </Principal>
+      <Dependent Role="Book_table">
+        <PropertyRef Name="Subject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_loan_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Member_ID" />
+      </Principal>
+      <Dependent Role="Borrow">
+        <PropertyRef Name="mem id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_return table_loan">
+    <End Role="Borrow" Type="Self.Borrow" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="return table" Type="Self.return table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Borrow">
+        <PropertyRef Name="loan id" />
+      </Principal>
+      <Dependent Role="return table">
+        <PropertyRef Name="loan id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="LMSModelStoreContainer">
+    <EntitySet Name="auther table" EntityType="Self.auther table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AutherAndBook" EntityType="Self.AutherAndBook" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Book_table" EntityType="Self.Book_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Borrow" EntityType="Self.Borrow" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="publisher" EntityType="Self.publisher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="record history" EntityType="Self.record history" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="return table" EntityType="Self.return table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AutherAndBook_auther table" Association="Self.FK_AutherAndBook_auther table">
+      <End Role="auther table" EntitySet="auther table" />
+      <End Role="AutherAndBook" EntitySet="AutherAndBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AutherAndBook_Book_table" Association="Self.FK_AutherAndBook_Book_table">
+      <End Role="Book_table" EntitySet="Book_table" />
+      <End Role="AutherAndBook" EntitySet="AutherAndBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Book_table_publisher" Association="Self.FK_Book_table_publisher">
+      <End Role="publisher" EntitySet="publisher" />
+      <End Role="Book_table" EntitySet="Book_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Book_table_Subject" Association="Self.FK_Book_table_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Book_table" EntitySet="Book_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_loan_Member" Association="Self.FK_loan_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Borrow" EntitySet="Borrow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_return table_loan" Association="Self.FK_return table_loan">
+      <End Role="Borrow" EntitySet="Borrow" />
+      <End Role="return table" EntitySet="return table" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
